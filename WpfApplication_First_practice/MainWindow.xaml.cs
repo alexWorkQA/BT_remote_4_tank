@@ -27,7 +27,9 @@ namespace WpfApplication_First_practice
             InitializeComponent();
             this.KeyDown += new KeyEventHandler(check_Key_Press);
             this.KeyUp += new KeyEventHandler(check_Key_UnPress);
-            bt_Port = new SerialPort("COM1", 9600);
+            bt_Port = new SerialPort();
+            bt_Port.BaudRate = 9600;
+            bt_Port.PortName = "COM5";
         }
 
         private void check_Key_UnPress(object sender, KeyEventArgs e)
@@ -61,21 +63,25 @@ namespace WpfApplication_First_practice
                 switch (e.Key.ToString()) {
                     case "Up":
                         {
+                            bt_Port.Write("F");
                             button_Forward.Content = "Pressed";
                             break;
                         }
                     case "Down":
                         {
+                            bt_Port.Write("B");
                             button_Backward.Content = "Pressed";
                             break;
                         }
                     case "Left":
                         {
+                            bt_Port.Write("L");
                             button_Left.Content = "Pressed";
                             break;
                         }
                     case "Right":
                         {
+                            bt_Port.Write("R");
                             button_Right.Content = "Pressed";
                             break;
                         }
@@ -88,21 +94,35 @@ namespace WpfApplication_First_practice
             {
                 if (!bt_Port.IsOpen)
                 {
-                    button_Test_Port.Content = "";
+                    bt_Port.Open();
                     button_Test_Port.Content = "Port Open";
-                    button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(1, 254, 1));
+                    //test if BT port is opened
+
+                   // int counter = 0;
+                    //while (counter<10)
+                    //{
+                        // WRITE THE INCOMING BUFFER TO CONSOLE
+                      //  while (bt_Port.BytesToRead > 0)
+                        //{
+                           // text4Test.Text = Convert.ToString(bt_Port.ReadChar());
+                        //}
+                        // SEND
+                        //bt_Port.WriteLine("PC counter: " + (counter++));
+                    //}
+
+                        button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(1, 254, 1));
                 }
             }
             else
             {
                 if (radioButton_Close_Port.IsChecked == true)
                 {
-                    button_Test_Port.Content = "";
+                    bt_Port.Close();
                     button_Test_Port.Content = "Port Close";
                     button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(254, 1, 1));
                 }
             }
-
         }
-    }
+
+     }
 }
