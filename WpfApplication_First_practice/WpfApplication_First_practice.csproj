@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Interfaces\Moveable.cs" />
     <Compile Include="Models\BluetoothPort.cs" />
+    <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Models\Tank.cs" />

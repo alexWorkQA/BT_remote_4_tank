@@ -89,7 +89,12 @@ namespace WpfApplication_First_practice
                 if (!bt_Port.IsOpen)
                 {
                     bt_Port.Open();
-                    vehicle = new Tank(bt_Port);
+                    if (tank_RadioButton.IsChecked == true)
+                        vehicle = new Tank(bt_Port);
+                    else
+                        if (car_RadioButton.IsChecked == true)
+                        vehicle = new Car(bt_Port);
+
                     button_Test_Port.Content = "Port Open";
                     button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(1, 254, 1));
                 }
