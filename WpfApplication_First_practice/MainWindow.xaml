@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication_First_practice"
         mc:Ignorable="d"
-        Title="Test first application" Height="451.466" Width="649.267">
-    <Grid Margin="0,0,2,0">
+        Title="Test first application" Height="409.251" Width="649.267">
+    <Grid Margin="0,0,2,39">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
@@ -14,12 +14,15 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <RadioButton x:Name="radioButton_Open_Port" Content ="Open" HorizontalAlignment="Left" Margin="20,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.433,-2.485" Height="15" Width="48" Grid.Column="2"/>
-        <RadioButton x:Name="radioButton_Close_Port" Content ="Close" HorizontalAlignment="Left" Margin="20,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.739,-0.79" IsChecked="true" Height="15" Width="48" Grid.Column="2"/>
+        <RadioButton x:Name="radioButton_Open_Port" Content ="Open" HorizontalAlignment="Left" Margin="20,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.433,-2.485" Height="15" Width="48" Grid.Column="2" GroupName="Port"/>
+        <RadioButton x:Name="radioButton_Close_Port" Content ="Close" HorizontalAlignment="Left" Margin="20,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.739,-0.79" IsChecked="true" Height="15" Width="48" Grid.Column="2" GroupName="Port"/>
         <Button x:Name="button_Test_Port" Content="Test" HorizontalAlignment="Left" Height="45" Margin="20,84,0,0" VerticalAlignment="Top" Width="75" Click="button_Test_Port_Click" Background="White" Grid.Column="2"/>
         <Button x:Name="button_Forward" Content="Forward" HorizontalAlignment="Left" Margin="330,114,0,0" VerticalAlignment="Top" Width="75" Height="69" Grid.Column="2"/>
         <Button x:Name="button_Left" Grid.ColumnSpan="3" Content="Left" HorizontalAlignment="Left" Margin="255,183,0,0" VerticalAlignment="Top" Width="75" Height="74"/>
         <Button x:Name="button_Backward" Grid.ColumnSpan="3" Content="Back" HorizontalAlignment="Left" Margin="330,257,0,0" VerticalAlignment="Top" Width="75" Height="74"/>
         <Button x:Name="button_Right" Grid.ColumnSpan="3" Content="Right" HorizontalAlignment="Left" Margin="405,183,0,0" VerticalAlignment="Top" Width="75" Height="74"/>
+        <Rectangle x:Name="Vehicle" Grid.ColumnSpan="3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="67" Margin="20,219,0,0" Stroke="Black" VerticalAlignment="Top" Width="95"/>
+        <RadioButton x:Name="tank_RadioButton" Grid.ColumnSpan="3" Content="Tank" HorizontalAlignment="Left" Margin="24,229,0,0" VerticalAlignment="Top" IsChecked="true" GroupName="Vehicle"/>
+        <RadioButton x:Name="car_RadioButton" Grid.ColumnSpan="3" Content="Car" HorizontalAlignment="Left" Margin="24,257,0,0" VerticalAlignment="Top" GroupName="Vehicle" RenderTransformOrigin="-0.305,-0.369"/>
     </Grid>
 </Window>

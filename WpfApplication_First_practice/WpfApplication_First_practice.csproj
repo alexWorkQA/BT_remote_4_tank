@@ -55,10 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="bluetooth_Test.cs" />
-    <Compile Include="Moveable.cs" />
+    <Compile Include="Interfaces\Moveable.cs" />
+    <Compile Include="Models\BluetoothPort.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Tank.cs" />
+    <Compile Include="Models\Tank.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

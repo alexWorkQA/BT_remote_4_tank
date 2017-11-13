@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO.Ports;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfApplication_First_practice.Models;
 
 namespace WpfApplication_First_practice
 {
@@ -21,36 +11,40 @@ namespace WpfApplication_First_practice
     /// </summary>
     public partial class MainWindow : Window
     {
-        SerialPort bt_Port;
+        BluetoothPort bt_Port;
+        Vehicle vehicle;
+
         public MainWindow()
         {
             InitializeComponent();
-            this.KeyDown += new KeyEventHandler(check_Key_Press);
-            this.KeyUp += new KeyEventHandler(check_Key_UnPress);
-            bt_Port = new SerialPort();
-            bt_Port.BaudRate = 9600;
-            bt_Port.PortName = "COM5";
+            KeyDown += new KeyEventHandler(check_Key_Press);
+            KeyUp += new KeyEventHandler(check_Key_UnPress);
+            bt_Port =  new BluetoothPort();
         }
 
         private void check_Key_UnPress(object sender, KeyEventArgs e)
         {
             if (button_Forward.Content.Equals("Pressed") )
             {
+                vehicle.Stop();
                 button_Forward.Content = "Forward";
             }
 
             if (button_Backward.Content.Equals("Pressed"))
             {
+                vehicle.Stop();
                 button_Backward.Content = "Back";
             }
 
             if (button_Left.Content.Equals("Pressed"))
             {
+                vehicle.Stop();
                 button_Left.Content = "Left";
             }
 
             if (button_Right.Content.Equals("Pressed"))
             {
+                vehicle.Stop();
                 button_Right.Content = "Right";
             }
         }
@@ -63,25 +57,25 @@ namespace WpfApplication_First_practice
                 switch (e.Key.ToString()) {
                     case "Up":
                         {
-                            bt_Port.Write("F");
+                            vehicle.Forward();
                             button_Forward.Content = "Pressed";
                             break;
                         }
                     case "Down":
                         {
-                            bt_Port.Write("B");
+                            vehicle.Backward();
                             button_Backward.Content = "Pressed";
                             break;
                         }
                     case "Left":
                         {
-                            bt_Port.Write("L");
+                            vehicle.Left();
                             button_Left.Content = "Pressed";
                             break;
                         }
                     case "Right":
                         {
-                            bt_Port.Write("R");
+                            vehicle.Right();
                             button_Right.Content = "Pressed";
                             break;
                         }
@@ -95,22 +89,9 @@ namespace WpfApplication_First_practice
                 if (!bt_Port.IsOpen)
                 {
                     bt_Port.Open();
+                    vehicle = new Tank(bt_Port);
                     button_Test_Port.Content = "Port Open";
-                    //test if BT port is opened
-
-                   // int counter = 0;
-                    //while (counter<10)
-                    //{
-                        // WRITE THE INCOMING BUFFER TO CONSOLE
-                      //  while (bt_Port.BytesToRead > 0)
-                        //{
-                           // text4Test.Text = Convert.ToString(bt_Port.ReadChar());
-                        //}
-                        // SEND
-                        //bt_Port.WriteLine("PC counter: " + (counter++));
-                    //}
-
-                        button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(1, 254, 1));
+                    button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(1, 254, 1));
                 }
             }
             else
