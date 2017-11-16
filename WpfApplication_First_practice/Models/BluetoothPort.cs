@@ -1,37 +1,42 @@
-﻿using System;
-using System.IO.Ports;
+﻿using WpfApplication_First_practice.Wrapper;
 
 namespace WpfApplication_First_practice.Models
 {
     /// <summary>
     /// Bluetooth Port wraps Serial Port
     /// </summary>
-    class BluetoothPort
+   public class BluetoothPort : BluetoothWrapper
     {
-        private SerialPort serialPort;
-
-        public SerialPort BT
+        public BluetoothPort(int BaudRate, string PortName) : base(BaudRate, PortName)
         {
-            get {
-                serialPort = new SerialPort("COM5", 9600);
-                return serialPort; }
-
-            set { serialPort = value; }
         }
+        /// <summary>
+        /// Check if port is Open
+        /// </summary>
+        public bool IsOpen { get { return serialPort.IsOpen; } }
 
-        public bool IsOpen { get; internal set; }
+        /// <summary>
+        /// Write command to serial port
+        /// </summary>
+        /// <param name="command"></param>
 
-        internal void Write(string command)
+        public void Write(string command)
         {
             serialPort.Write(command);
         }
 
-        internal void Open()
+        /// <summary>
+        /// Open BT port
+        /// </summary>
+        public void Open()
         {
             serialPort.Open();
         }
 
-        internal void Close()
+        /// <summary>
+        /// Close BT port
+        /// </summary>
+        public void Close()
         {
             serialPort.Close();
         }

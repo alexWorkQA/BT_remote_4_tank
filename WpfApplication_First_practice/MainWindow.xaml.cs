@@ -1,7 +1,7 @@
-﻿using System.IO.Ports;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using WpfApplication_First_practice.Factory;
 using WpfApplication_First_practice.Models;
 
 namespace WpfApplication_First_practice
@@ -19,7 +19,7 @@ namespace WpfApplication_First_practice
             InitializeComponent();
             KeyDown += new KeyEventHandler(check_Key_Press);
             KeyUp += new KeyEventHandler(check_Key_UnPress);
-            bt_Port =  new BluetoothPort();
+            bt_Port = BluetoothPortFactory.getBlutoothPortinstance();
         }
 
         private void check_Key_UnPress(object sender, KeyEventArgs e)
@@ -88,6 +88,7 @@ namespace WpfApplication_First_practice
             {
                 if (!bt_Port.IsOpen)
                 {
+                    
                     bt_Port.Open();
                     if (tank_RadioButton.IsChecked == true)
                         vehicle = new Tank(bt_Port);
