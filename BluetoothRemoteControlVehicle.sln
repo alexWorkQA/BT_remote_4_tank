@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BTRemoteVehicle", "BTRemoteVehicle", "{4B3BBF29-E6A6-43A7-BCA3-89A83497A987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluetoothRCVehicle.Application", "BluetoothRCVehicle.Application\BluetoothRCVehicle.Application.csproj", "{DE43553C-CB35-43CF-B83E-EA0C591B2AAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluetoothRCVehicle.Tests", "BluetoothRCVehicle.Tests\BluetoothRCVehicle.Tests.csproj", "{9449835E-0490-487D-A4D5-1324D0D58853}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE43553C-CB35-43CF-B83E-EA0C591B2AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE43553C-CB35-43CF-B83E-EA0C591B2AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE43553C-CB35-43CF-B83E-EA0C591B2AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE43553C-CB35-43CF-B83E-EA0C591B2AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9449835E-0490-487D-A4D5-1324D0D58853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9449835E-0490-487D-A4D5-1324D0D58853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9449835E-0490-487D-A4D5-1324D0D58853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9449835E-0490-487D-A4D5-1324D0D58853}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE43553C-CB35-43CF-B83E-EA0C591B2AAE} = {4B3BBF29-E6A6-43A7-BCA3-89A83497A987}
+		{9449835E-0490-487D-A4D5-1324D0D58853} = {4B3BBF29-E6A6-43A7-BCA3-89A83497A987}
+	EndGlobalSection
+EndGlobal
