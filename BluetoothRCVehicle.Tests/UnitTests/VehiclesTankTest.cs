@@ -8,20 +8,34 @@ namespace BluetoothRCVehicle.Tests.UnitTests
     [TestFixture]
     public class VehiclesTankTest
     {
-        Vehicle vehicle;
+        Vehicle vehicleTank;
+        Vehicle vehicleCar;
         BluetoothPort port;
 
         [SetUp]
         public void CreateNewTank()
         {
             port = BluetoothPortFactory.getBlutoothPortinstance();
-            vehicle = new Tank(port);
+            vehicleTank = new Tank(port);
+        }
+
+        [SetUp]
+        public void CreateNewCar()
+        {
+            port = BluetoothPortFactory.getBlutoothPortinstance();
+            vehicleCar = new Car(port);
         }
 
         [Test]
         public void NewTankNotEmpty()
         {
-            Assert.IsNotNull(vehicle);
+            Assert.IsNotNull(vehicleTank);
+        }
+
+        [Test]
+        public void NewCarNotEmpty()
+        {
+            Assert.IsNotNull(vehicleCar);
         }
 
 

@@ -45,6 +45,7 @@ namespace BluetoothRCVehicle.Tests
         [Test]
         public void BTPortCouldBeClosed()
         {
+            port.Open();
             port.Close();
             Assert.IsFalse(port.IsOpen);
         }

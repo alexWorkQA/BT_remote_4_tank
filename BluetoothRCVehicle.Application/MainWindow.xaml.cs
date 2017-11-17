@@ -88,7 +88,6 @@ namespace BluetoothRCVehicle.Application
             {
                 if (!bt_Port.IsOpen)
                 {
-                    
                     bt_Port.Open();
                     if (tank_RadioButton.IsChecked == true)
                         vehicle = new Tank(bt_Port);
@@ -98,6 +97,8 @@ namespace BluetoothRCVehicle.Application
 
                     button_Test_Port.Content = "Port Open";
                     button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(1, 254, 1));
+                    tank_RadioButton.IsEnabled = false;
+                    car_RadioButton.IsEnabled = false;
                 }
             }
             else
@@ -107,6 +108,8 @@ namespace BluetoothRCVehicle.Application
                     bt_Port.Close();
                     button_Test_Port.Content = "Port Close";
                     button_Test_Port.Background = new SolidColorBrush(Color.FromRgb(254, 1, 1));
+                    tank_RadioButton.IsEnabled = true;
+                    car_RadioButton.IsEnabled = true;
                 }
             }
         }
